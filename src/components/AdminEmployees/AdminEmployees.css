@@ -1,0 +1,5 @@
+
+.employees_header {
+    @apply h-10  mt-10 text-white border-2 rounded-2xl  bg-blue-900 shadow-xl shadow-blue-900/90 grid grid-cols-10 items-center text-sm p-2 gap-12
+}
+

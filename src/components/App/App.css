@@ -1,0 +1,8 @@
+.App {
+    width: 1440px;
+    min-height: 1500px;
+    margin: 0 auto;
+    border-radius: 20px;
+    padding: 5px 10px;
+    @apply bg-gray-200 relative
+}

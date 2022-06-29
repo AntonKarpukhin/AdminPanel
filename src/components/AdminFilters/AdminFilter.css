@@ -1,0 +1,19 @@
+.filter {
+    @apply min-h-min border-2 rounded-2xl p-5 mt-10 bg-yellow-700 shadow-xl shadow-yellow-700/70
+}
+
+.input {
+    @apply w-4/12 text-lg
+}
+
+.btn {
+    @apply  flex justify-items-end text-lg
+}
+
+.btn_filter {
+    @apply block h-12 w-64 text-white font-bold bg-amber-600 hover:bg-amber-700 ml-2
+}
+
+.active {
+    @apply bg-amber-700
+}

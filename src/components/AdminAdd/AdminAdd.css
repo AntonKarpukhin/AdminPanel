@@ -1,0 +1,27 @@
+.form {
+    @apply mt-10 border-2 rounded-2xl bg-emerald-700 shadow-xl shadow-emerald-700/70 pt-5 pb-5 h-52
+}
+
+h1 {
+    @apply text-3xl text-center text-white
+}
+
+.form_wrapper {
+    @apply grid grid-cols-4 grid-rows-2 gap-10  mt-10 justify-items-center
+}
+
+.form_input {
+    @apply basis-1/4 rounded-2xl w-72 text-lg
+}
+
+.form_select {
+    @apply basis-1/4 rounded-2xl w-72
+}
+
+.form_btn {
+    @apply border-2 bg-sky-500 shadow-xl shadow-sky-500/50 h-14 w-72 rounded-2xl hover:bg-sky-700 font-bold
+}
+
+.form_error {
+    @apply text-white mt-2 ml-2 text-xl
+}
