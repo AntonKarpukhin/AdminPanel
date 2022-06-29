@@ -2,10 +2,6 @@
     @apply min-h-min border-2 rounded-2xl p-5 mt-10 bg-yellow-700 shadow-xl shadow-yellow-700/70
 }
 
-.input {
-    @apply w-4/12 text-lg
-}
-
 .btn {
     @apply  flex justify-items-end text-lg
 }
