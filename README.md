@@ -1,3 +1,3 @@
 Административная панель. 
-React, Typescript, Redux, Tailwindcss. 
+React, Typescript, Redux-Toolkit, Tailwindcss. 
 Сервер - json-server.

@@ -50,14 +50,6 @@ export const AdminFilters = () => {
 
 	return (
 		<div className="filter">
-			<div className="inputs">
-				<input
-					className="input"
-					type="text"
-					placeholder="Найти сотрудника"
-				/>
-			</div>
-
 			<div className="btn">
 				{elementsBtn}
 			</div>
