@@ -1,9 +1,19 @@
-import {legacy_createStore as createStore, combineReducers} from 'redux';
+import {configureStore} from "@reduxjs/toolkit";
 
-import filters from "../reducers/filters";
-import employees from "../reducers/employees";
+import filtersSlice from "../reducers/filters.Slice";
+import {StoreType} from "../reducers/reducers.props";
+import employeesSlice from "../reducers/employees.Slice";
 
 
-const store = createStore( combineReducers({employees, filters}))
+
+
+const store = configureStore<StoreType>({
+	reducer: {employeesSlice, filtersSlice},
+	// @ts-ignore
+	middleware: getDefaultMiddleware => getDefaultMiddleware(),
+	devTools: process.env.NODE_ENV !== 'production',
+
+})
+
 
 export default store;

@@ -7,17 +7,19 @@ export interface IBtnSelect {
 }
 
 export interface IEmployeesFilters {
-	filters: {
+	filtersSlice: {
 		activeFilter: string
 	},
-	employees: {
+	employeesSlice: {
 		employees: Employees[]
 	}
 }
 
 export interface ISelectBtn {
-	filters: {
+	filtersSlice: {
 		filters: IBtnSelect[]
+		filtersLoadingStatus: string,
+		activeFilter: string
 	}
 }
 

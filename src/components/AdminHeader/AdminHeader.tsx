@@ -5,7 +5,7 @@ import './AdminHeader.css';
 
 export const AdminHeader = () => {
 
-	const employees = useSelector<AdminHeaderProps, Employees[]>(state => state.employees.employees)
+	const employees = useSelector<AdminHeaderProps, Employees[]>(state => state.employeesSlice.employees)
 
 	const sum = (arr: Employees[]) => {
 		let a: number = 0

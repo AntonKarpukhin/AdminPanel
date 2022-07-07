@@ -1,8 +1,6 @@
-import {useCallback} from "react";
-
 export const HttpHooks = () => {
 
-	const request = useCallback(async function <T> (url:string, method = "GET", body: string | null = null, headers = {'Content-Type': 'application/json'}): Promise<T> {
+	const request = async function <T> (url:string, method = "GET", body: string | null = null, headers = {'Content-Type': 'application/json'}): Promise<T> {
 
 		try {
 			const response = await fetch(url, {method, body, headers});
@@ -18,7 +16,7 @@ export const HttpHooks = () => {
 		} catch (err) {
 			throw err;
 		}
-	}, []);
+	};
 
 	return {request}
 }

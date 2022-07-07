@@ -1,7 +1,7 @@
 import {Employees} from "../AdminEmployees/AdminEmployeesProps";
 
 export interface AdminHeaderProps {
-	employees: {
+	employeesSlice: {
 		employees: Employees[]
 	}
 }

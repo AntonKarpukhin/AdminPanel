@@ -1,25 +1,20 @@
-import { createSelector } from 'reselect'
+import {createSelector} from '@reduxjs/toolkit'
 import {useDispatch, useSelector} from "react-redux";
 import React, {useCallback, useEffect} from "react";
 import {Spinner} from "../Spinner/Spinner";
 import {HttpHooks} from "../../hooks/http.hooks";
-import {
-	employeesDelete,
-	employeesFetched,
-	employeesFetching,
-	employeesFetchingError
-} from "../../action";
+import {employeesDelete, fetchEmployees} from "../../reducers/employees.Slice";
 import {AdminEmployeesItem} from "../AdminEmployeesItem/AdminEmployeesItem";
 import {Employees} from "./AdminEmployeesProps";
 import {IEmployeesFilters} from "../AdminFilters/AdminFiltersProps";
-import {IStoreEmployees} from "../../reducers/employees.props";
+import {IStoreEmployees} from "../../reducers/reducers.props";
 import './AdminEmployees.css';
 
 export const AdminEmployees = () => {
 
 	const filteredEmployeesSelector = createSelector(
-		(state: IEmployeesFilters) => state.filters.activeFilter,
-		(state: IEmployeesFilters) => state.employees.employees,
+		(state: IEmployeesFilters) => state.filtersSlice.activeFilter,
+		(state: IEmployeesFilters) => state.employeesSlice.employees,
 		(filter, employees) => {
 			if (filter === 'all') {
 				return employees
@@ -35,10 +30,8 @@ export const AdminEmployees = () => {
 	const {request} = HttpHooks();
 
 	useEffect(() => {
-		dispatch(employeesFetching());
-		request<Employees[]>("http://localhost:3010/employees")
-			.then(data => dispatch(employeesFetched(data)))
-			.catch(() => dispatch(employeesFetchingError()));
+		// @ts-ignore
+		dispatch(fetchEmployees());
 	}, [])
 
 	const onDelete = useCallback((id: number) => {

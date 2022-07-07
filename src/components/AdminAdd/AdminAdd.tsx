@@ -4,7 +4,7 @@ import {useDispatch} from "react-redux";
 import React, {useState} from "react";
 import { v4 as uuidv4} from 'uuid';
 import {HttpHooks} from "../../hooks/http.hooks";
-import {employeesCreated} from "../../action";
+import {employeesCreated} from "../../reducers/employees.Slice";
 import {Employees} from "../AdminEmployees/AdminEmployeesProps";
 import {IAdd, IAddServer, IOptions} from "./AdminAddProps";
 import './AdminAdd.css';

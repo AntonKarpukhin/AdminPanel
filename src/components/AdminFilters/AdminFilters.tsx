@@ -2,31 +2,21 @@ import React, {useEffect} from "react";
 import {useSelector, useDispatch} from "react-redux";
 import cn from 'classnames';
 import {Spinner} from "../Spinner/Spinner";
-import {HttpHooks} from "../../hooks/http.hooks";
-import {
-	activeFilterChanged,
-	filtersFetched,
-	filtersFetching,
-	filtersFetchingError,
-} from "../../action";
-import {IStoreFilters} from "../../reducers/filters.props";
+import {activeFilterChanged, fetchFilters} from "../../reducers/filters.Slice";
 import {IBtnSelect, ISelectBtn} from "./AdminFiltersProps";
 
 import './AdminFilter.css';
 
 export const AdminFilters = () => {
 
-	const filters = useSelector<ISelectBtn, IBtnSelect[]>(state => state.filters.filters)
-	const filtersLoadingStatus = useSelector<IStoreFilters, string>(state => state.filtersLoadingStatus)
-	const activeFilter = useSelector<IStoreFilters, string>(state => state.activeFilter)
+	const filters = useSelector<ISelectBtn, IBtnSelect[]>(state => state.filtersSlice.filters)
+	const filtersLoadingStatus = useSelector<ISelectBtn, string>(state => state.filtersSlice.filtersLoadingStatus)
+	const activeFilter = useSelector<ISelectBtn, string>(state => state.filtersSlice.activeFilter)
 	const dispatch = useDispatch();
-	const {request} = HttpHooks();
 
 	useEffect(() => {
-		dispatch(filtersFetching());
-		request<IBtnSelect[]>("http://localhost:3010/filters")
-			.then(data => dispatch(filtersFetched(data)))
-			.catch(() => dispatch(filtersFetchingError()))
+		// @ts-ignore
+		dispatch(fetchFilters())
 	}, []);
 
 	if (filtersLoadingStatus === 'loading') {
@@ -60,7 +50,13 @@ export const AdminFilters = () => {
 
 	return (
 		<div className="filter">
-
+			<div className="inputs">
+				<input
+					className="input"
+					type="text"
+					placeholder="Найти сотрудника"
+				/>
+			</div>
 
 			<div className="btn">
 				{elementsBtn}
